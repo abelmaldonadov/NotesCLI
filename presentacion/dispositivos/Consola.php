@@ -4,30 +4,37 @@ require ROOT."presentacion/interfaces/Salida.php";
 
 class Consola implements Salida
 {
-    // 35 GUIONES
-    private const LINEA = "-----------------------------------\n";
+    // 50 GUIONES
+    private const LINEA = "--------------------------------------------------\n";
 
     public function outAlerta ($texto) {
+        echo "\n";
         echo Self::LINEA;
-        echo $texto;
+        echo "$texto \n";
         echo Self::LINEA;
     }
 
     public function outTexto ($texto) {
-        echo $texto;
+        echo "$texto \n";
     }
 
     public function outOpciones ($arrOpc) {
-        Self::LINEA;
+        // echo Self::LINEA;
         for ($i = 0 ; $i < count($arrOpc) ; $i++) { 
             echo "$i :  $arrOpc[$i] \n";
         }
-        Self::LINEA;
+        echo Self::LINEA;
     }
 
     public function outAyuda () {
-        Self::LINEA;
-        echo "[return] : Volver al menú principal. \n[exit]   : Salir del programa. \n";
-        Self::LINEA;
+        echo "\n";
+        echo Self::LINEA;
+        echo "[back] : Volver a ver el menú. \n[return] : Volver al menú principal. \n[exit]   : Salir del programa. \n";
+        echo Self::LINEA;
+    }
+
+    public function outError ($texto) {
+        echo "\n";
+        echo "$texto \n";
     }
 }

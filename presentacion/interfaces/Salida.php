@@ -6,4 +6,5 @@ interface Salida
     public function outTexto ($texto);
     public function outOpciones ($arrOpc);
     public function outAyuda ();
+    public function outError ($texto);
 }
