@@ -2,5 +2,5 @@
 
 interface Entrada
 {
-    public function leer ();
+    public function leer () : string;
 }

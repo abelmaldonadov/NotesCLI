@@ -2,6 +2,6 @@
 
 interface ConfigDAO
 {
-    public function selectAll ();
-    public function select ($i);
+    public function selectAll () : array;
+    public function select (int $i) : array;
 }
