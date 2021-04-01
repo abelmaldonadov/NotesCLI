@@ -17,7 +17,7 @@ class Index
 
         while (true) {
             // MENÚ PRINCIPAL
-            $_salida->outOpciones("Menú principal:",["CONSULTAR NOTAS","NUEVA NOTA","ELIMINAR NOTA"]);
+            $_salida->outOpciones("MENÚ PRINCIPAL:",["CONSULTAR NOTAS","NUEVA NOTA","ELIMINAR NOTA"]);
 
             while (true) {
                 // LISTENER
@@ -29,23 +29,17 @@ class Index
                         while (true) {
                             // LISTA COMPLETA
                             $lista = Core::verLista();
-                            $_salida->outOpciones("Seleccione el elemento a visualizar:",$lista);
+                            $_salida->outOpciones("SELECCIONE EL ELEMENTO A VISUALIZAR:",$lista);
 
                             while (true) {
                                 // LISTENER
                                 $opc = $_entrada->leer();
 
                                 switch ($opc) {
-                                    case "back":
-                                        break 2;
-
-                                    case "return":
-                                        break 5;
-                
-                                    case "help":
-                                        $_salida->outAyuda();
-                                        break;
-                                    
+                                    case "b": break 2;
+                                    case "r": break 5;
+                                    case "h": $_salida->outAyuda(); break;
+                                    case "" : break;
                                     default:
                                         // VALIDAR OPCION VALIDA
                                         if ($opc < 1 || $opc > count($lista)) {
@@ -86,35 +80,26 @@ class Index
                         while (true) {
                             // LISTA COMPLETA
                             $lista = Core::verLista();
-                            $_salida->outOpciones("Seleccione el elemento a eliminar:",$lista);
+                            $_salida->outOpciones("SELECCIONE EL ELEMENTO A ELIMINAR:",$lista);
 
                             while (true) {
                                 // LISTENER
                                 $opc = $_entrada->leer();
 
                                 switch ($opc) {
-                                    case "back":
-                                        break 2;
-
-                                    case "return":
-                                        break 5;
-                
-                                    case "help":
-                                        $_salida->outAyuda();
-                                        break;
-                                    
-                                    case "":
-                                        break;
-                                    
+                                    case "b": break 2;
+                                    case "r": break 5;
+                                    case "h": $_salida->outAyuda(); break;
+                                    case "" : break;
                                     default:
                                         // VALIDAR OPCION VALIDA
                                         if ($opc < 1 || $opc > count($lista)) {
                                             $_salida->outError("OPCIÓN INVÁLIDA");
                                             break;
                                         }
-                                        $_salida->outAlerta("CONFIRMA LA ELIMINACIÓN DEL ELEMENTO $opc [yes / no]");
+                                        $_salida->outAlerta("CONFIRMA LA ELIMINACIÓN DEL ELEMENTO $opc [y / n]");
                                         $confirm = $_entrada->leer();
-                                        if ($confirm == "yes") {
+                                        if ($confirm == "y") {
                                             try {
                                                 Core::delItem($opc);
                                                 $_salida->outAlerta("ELEMENTO ELIMINADO");
@@ -127,22 +112,11 @@ class Index
                         }
                         break;
 
-                    case "back":
-                        break 2;
-
-                    case "return":
-                        break 2;
-
-                    case "help":
-                        $_salida->outAyuda();
-                        break;
-                    
-                    case "":
-                        break;
-
-                    default:
-                        $_salida->outError("OPCIÓN INVÁLIDA");
-                        break;
+                    case "b": break 2;
+                    case "r": break 2;
+                    case "h": $_salida->outAyuda(); break;
+                    case "" : break;
+                    default: $_salida->outError("OPCIÓN INVÁLIDA"); break;
                 }
             }
         }

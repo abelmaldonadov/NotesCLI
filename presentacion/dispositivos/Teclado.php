@@ -9,7 +9,7 @@ class Teclado implements Entrada
         $input = readline();
 
         switch ($input) {
-            case "exit":
+            case "q":
                 die();
 
             default:

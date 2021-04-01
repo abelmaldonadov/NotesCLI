@@ -38,7 +38,7 @@ class Consola implements Salida
     public function outAyuda () : void {
         echo "\n";
         echo Self::CAJA;
-        echo "[back]   : Volver a ver el menú. \n[return] : Volver al menú principal. \n[exit]   : Salir del programa. \n";
+        echo "[b] : Volver a ver el menú. \n[r] : Volver al menú principal. \n[q] : Salir del programa. \n";
         echo Self::CAJA;
         echo "\n";
     }

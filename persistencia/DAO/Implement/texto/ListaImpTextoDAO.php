@@ -37,12 +37,16 @@ class ListaImpTextoDAO implements ListaDAO
 
         $file = file_get_contents(Self::FILE);
         $file = str_replace($item,"",$file);
+        $file = trim($file);
         file_put_contents(Self::FILE,$file);
     }
     
     public function insert (array $item) : void {
+        $titulo = trim(strtoupper($item[0]));
+        $detalle = trim(strtoupper($item[1]));
+        $fecha = $item[2];
 
-        $linea = "\n".$item[0]."|".$item[1]."|".$item[2];
+        $linea = "\n".$titulo."|".$detalle."|".$fecha;
         file_put_contents(Self::FILE,$linea,FILE_APPEND);
     }
 }
